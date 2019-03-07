@@ -37,7 +37,7 @@ def test_datalake_query(monkeypatch):
     monkeypatch.setattr('requests.Session.get', request_history)
     monkeypatch.setattr('requests.Session.post', request_history)
 
-    url = 'http://datalake/'
+    url = 'http://datalake'
     dl = DatalakeWrapper(url)
 
     q = 'SELECT * FROM dummy_table LIMIT 1'
@@ -45,7 +45,5 @@ def test_datalake_query(monkeypatch):
 
     assert result == resp.json.return_value
 
-    request_history.assert_called_with('http://datalake/jobs',
-                                       headers={'User-Agent': get_user_agent()},
-                                       params={'query': q},
-                                       timeout=10)
+    request_history.assert_called_with('http://datalake/jobs/abc/output',
+                                       json=q)
