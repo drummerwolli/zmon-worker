@@ -33,8 +33,8 @@ def requests_mock(resp, failure=None):
 def test_datalake_query(monkeypatch):
     resp = resp_mock()
     request_history = requests_mock(resp)
-    monkeypatch.setattr('requests.get', request_history)
-    monkeypatch.setattr('requests.post', request_history)
+    monkeypatch.setattr('requests.session.get', request_history)
+    monkeypatch.setattr('requests.session.post', request_history)
 
     url = 'http://datalake/'
     dl = DatalakeWrapper(url)
