@@ -53,12 +53,16 @@ class DatalakeWrapper(object):
         if oauth2:
             self.__session.headers.update({'Authorization': 'Bearer {}'.format(tokens.get('uid'))})
 
-    def query(self, query):
+    def query(self, query, timeout=60):
+        start_time = time.time()
+
         # submit query first
         job_id = self.__session.post('{}/jobs'.format(self.url), json=query).json()['id']
 
         # check if query has finished
         while self.__session.get('{}/jobs/{}'.format(self.url, job_id), json=query).json()['status'] == 'RUNNING':
+            if time.time() > start_time + timeout:
+                raise CheckError('Datalake query timed out!')
             time.sleep(QUERY_STATUS_INTERVAL)
 
         # check for failures
