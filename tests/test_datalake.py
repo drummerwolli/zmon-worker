@@ -1,5 +1,4 @@
 from zmon_worker_monitor.builtins.plugins.datalake import DatalakeWrapper
-from zmon_worker_monitor.zmon_worker.common.http import get_user_agent
 
 from mock import MagicMock
 
