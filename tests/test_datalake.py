@@ -30,7 +30,7 @@ def requests_mock(resp, failure=None):
     return req
 
 
-def test_elasticsearch_search(monkeypatch):
+def test_datalake_query(monkeypatch):
     resp = resp_mock()
     get = requests_mock(resp)
     monkeypatch.setattr('requests.get', get)
