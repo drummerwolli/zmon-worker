@@ -12,6 +12,7 @@ def resp_mock(failure=False):
         "limit": 10000,
         "offset": 0,
         "result": [],
+        "status": "FINISHED",
         "truncated": False
     } if not failure else {'message': "failed!", 'id': "def"}
     resp.json.return_value = json_res
