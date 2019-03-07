@@ -57,6 +57,8 @@ plugin.mssql.pass: '--secret--'
 plugin.elasticsearch.url: 'https://es-cluster'
 
 plugin.appdynamics.url: 'https://appdynamics'
+  
+plugin.datalake.url: 'https://datalake.example.org'
 
 plugin.saml.url: 'https://idp.example.com/profile/SAML2/Unsolicited/SSO?providerId=urn:self'
 plugin.openam.url: 'https://auth.zalando.com/z'

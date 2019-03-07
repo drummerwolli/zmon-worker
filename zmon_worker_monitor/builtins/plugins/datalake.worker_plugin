@@ -1,0 +1,13 @@
+[Core]
+Name = datalake
+Module = datalake
+
+[Documentation]
+Author = Fabian Wollert
+Version = 0.1
+Website = https://github.com/zalando/zmon-worker
+Description = Builtin plugin that provides Datalake query capabilities
+
+[Configuration]
+
+;; query = "SELECT * FROM table LIMIT 100"
