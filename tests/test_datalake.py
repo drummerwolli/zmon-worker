@@ -1,4 +1,4 @@
-from zmon_worker_monitor.builtins.plugins.datalake import DatalakeWrapper
+from zmon_worker_extras.check_plugins.datalake import DatalakeWrapper
 
 from mock import MagicMock
 
